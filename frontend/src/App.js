@@ -1142,8 +1142,15 @@ const App = () => {
                   <h3 className="text-xl font-bold text-green-400">Experience</h3>
                 </div>
                 <div>
-                  <p className="text-base text-gray-300 font-semibold">Open to Opportunities</p>
-                  <p className="text-sm text-gray-400">Exploring new challenges</p>
+                  <p className="text-base text-gray-300 font-semibold mb-1">MERN Stack Developer <span className="text-xs text-gray-400 font-normal">June 2024 – June 2025</span></p>
+                  <p className="text-sm text-green-300 font-bold mb-2">MoneyNotSleep Media Pvt. Ltd. (Jaipur, India)</p>
+                  <ul className="list-disc pl-5 space-y-1 text-sm text-gray-300">
+                    <li>Developed and maintained scalable full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).</li>
+                    <li>Implemented secure RESTful APIs with JWT-based authentication, and built dynamic frontend components using React.js and Tailwind CSS.</li>
+                    <li>Led development of an internal admin dashboard with full CRUD operations, role-based access, and real-time data syncing.</li>
+                    <li>Used Postman for API testing, managed version control with Git & GitHub, and contributed to CI/CD workflows for smooth deployment.</li>
+                    <li>Collaborated in an Agile environment, participated in weekly sprints, code reviews, and peer programming sessions to ensure high code quality.</li>
+                  </ul>
                 </div>
               </div>
             </div>
