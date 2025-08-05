@@ -13,6 +13,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
+import Certifications from './components/Certifications';
 import Footer from './components/Footer';
 
 // 3D Scene Component
@@ -152,6 +153,9 @@ const App = () => {
 
         {/* Achievements Section */}
         <Achievements />
+        
+        {/* Certifications Section */}
+        <Certifications />
         
         {/* Contact Section */}
         <Contact />

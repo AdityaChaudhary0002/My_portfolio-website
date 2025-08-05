@@ -67,6 +67,50 @@ const Achievements = () => {
             </motion.div>
           ))}
         </div>
+        
+        {/* Problems Solved Section */}
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h3 className="text-3xl font-bold mb-6 text-blue-400">Coding Achievements</h3>
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-gray-800 rounded-lg p-8">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="text-4xl">🎯</span>
+                <h4 className="text-2xl font-bold text-white">1500+ Problems Solved</h4>
+              </div>
+              <p className="text-gray-300 mb-6">Consistent problem-solving across multiple platforms</p>
+              
+              {/* Progress Bar */}
+              <div className="w-full bg-gray-700 rounded-full h-3 mb-4">
+                <motion.div 
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "85%" }}
+                  transition={{ duration: 2, ease: "easeOut" }}
+                />
+              </div>
+              
+              <div className="grid grid-cols-3 gap-4 text-sm">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-400">500+</div>
+                  <div className="text-gray-400">LeetCode</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-400">400+</div>
+                  <div className="text-gray-400">CodeChef</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-400">600+</div>
+                  <div className="text-gray-400">Others</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

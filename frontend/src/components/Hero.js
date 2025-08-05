@@ -138,17 +138,7 @@ const Hero = ({ heroRef }) => {
             <p className="text-sm text-gray-500 mt-2">- Cory House</p>
           </motion.div>
           
-          {/* Problems Solved */}
-          <motion.div
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 2.5 }}
-          >
-            <p className="text-xl text-blue-400 font-semibold">
-              🎯 <span className="text-white">1500+</span> Problems Solved
-            </p>
-          </motion.div>
+
         </motion.div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-8">

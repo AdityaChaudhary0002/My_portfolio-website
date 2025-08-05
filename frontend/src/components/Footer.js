@@ -11,6 +11,19 @@ const Footer = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
+          {/* Steve Jobs Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-8"
+          >
+            <p className="text-lg text-gray-300 italic mb-2">
+              "Stay hungry, stay foolish."
+            </p>
+            <p className="text-sm text-gray-500">- Steve Jobs</p>
+          </motion.div>
+          
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="text-gray-400">Made with</span>
             <motion.div
