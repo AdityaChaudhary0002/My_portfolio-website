@@ -56,7 +56,7 @@ const Projects = ({ projectsRef }) => {
                   href="https://e-commercccceee.netlify.app/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="bg-blue-600 px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors cursor-pointer"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -107,7 +107,7 @@ const Projects = ({ projectsRef }) => {
                   href="https://code-editor-6rqa.onrender.com/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="bg-blue-600 px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 px-3 py-1 rounded text-xs hover:bg-blue-700 transition-colors cursor-pointer"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -158,7 +158,7 @@ const Projects = ({ projectsRef }) => {
                   href="https://drive.google.com/drive/folders/1JZ0EL0VH1ZSPS8PKMU23dUBty4GjWzK9" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="bg-gray-600 px-3 py-1 rounded text-xs hover:bg-gray-700 transition-colors"
+                  className="bg-gray-600 px-3 py-1 rounded text-xs hover:bg-gray-700 transition-colors cursor-pointer"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >

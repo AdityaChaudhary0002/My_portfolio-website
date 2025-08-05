@@ -158,11 +158,11 @@ const App = () => {
         {/* Certifications Section */}
         <Certifications />
         
-        {/* Quote Section */}
-        <Quote />
-        
         {/* Contact Section */}
         <Contact />
+        
+        {/* Quote Section */}
+        <Quote />
         
         {/* Footer */}
         <Footer />
