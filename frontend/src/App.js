@@ -14,6 +14,7 @@ import Projects from './components/Projects';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Certifications from './components/Certifications';
+import Quote from './components/Quote';
 import Footer from './components/Footer';
 
 // 3D Scene Component
@@ -156,6 +157,9 @@ const App = () => {
         
         {/* Certifications Section */}
         <Certifications />
+        
+        {/* Quote Section */}
+        <Quote />
         
         {/* Contact Section */}
         <Contact />

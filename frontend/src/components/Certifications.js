@@ -31,9 +31,11 @@ const Certifications = () => {
             <p className="text-gray-400 mb-1">Coursera</p>
             <p className="text-gray-500 mb-3">2024</p>
             <div className="flex items-center justify-center gap-2">
-              <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-              </svg>
+              <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
               <span className="text-green-400 text-sm font-medium">Verified</span>
             </div>
           </motion.div>
