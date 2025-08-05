@@ -12,6 +12,8 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Achievements from './components/Achievements';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 // 3D Scene Component
 const Scene3D = ({ section }) => {
@@ -150,6 +152,12 @@ const App = () => {
 
         {/* Achievements Section */}
         <Achievements />
+        
+        {/* Contact Section */}
+        <Contact />
+        
+        {/* Footer */}
+        <Footer />
       </div>
     </div>
   );

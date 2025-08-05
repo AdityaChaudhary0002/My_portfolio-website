@@ -78,7 +78,9 @@ const Skills = ({ skillsRef }) => {
             transition={{ duration: 0.6, delay: 0.3, type: 'spring', stiffness: 300 }}
           >
             <motion.div className="flex justify-center items-center mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-              <img src="https://www.svgrepo.com/show/331488/database.svg" alt="Database icon" className="w-16 h-16" style={{ filter: 'invert(1)' }}/>
+              <svg className="w-16 h-16 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4v10c0 2.21-3.582 4-8 4s-8-1.79-8-4V7zm8-2c-3.314 0-6 1.343-6 3v10c0 1.657 2.686 3 6 3s6-1.343 6-3V8c0-1.657-2.686-3-6-3z"/>
+              </svg>
             </motion.div>
             <h3 className="text-2xl font-bold mb-4 text-purple-400">Database</h3>
             <div className="space-y-3 pl-4">
@@ -105,7 +107,10 @@ const Skills = ({ skillsRef }) => {
             transition={{ duration: 0.6, delay: 0.4, type: 'spring', stiffness: 300 }}
           >
             <motion.div className="flex justify-center items-center mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-              <img src="https://www.svgrepo.com/show/452092/gears.svg" alt="Tools icon" className="w-16 h-16" style={{ filter: 'invert(1)' }}/>
+              <svg className="w-16 h-16 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
             </motion.div>
             <h3 className="text-2xl font-bold mb-4 text-yellow-400">Tools & Others</h3>
             <div className="space-y-3 pl-4">

@@ -3,9 +3,33 @@ import { motion } from 'framer-motion';
 
 const Hero = ({ heroRef }) => {
   return (
-    <section ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden bg-black">
+            <section ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden bg-black">
       {/* Ultra dark professional background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-gray-900 opacity-95"></div>
+      
+      {/* Interactive background pattern */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none interactive-bg"
+        animate={{
+          backgroundPosition: [
+            "0% 0%",
+            "100% 100%",
+            "50% 50%",
+            "0% 0%"
+          ]
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        onMouseMove={(e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          e.currentTarget.style.backgroundPosition = `${x * 100}% ${y * 100}%`;
+        }}
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -100,6 +124,31 @@ const Hero = ({ heroRef }) => {
               </motion.span>
             </motion.span>
           </motion.p>
+          
+          {/* Quote */}
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2 }}
+          >
+            <p className="text-lg text-gray-400 italic">
+              "Code is like humor. When you have to explain it, it's bad."
+            </p>
+            <p className="text-sm text-gray-500 mt-2">- Cory House</p>
+          </motion.div>
+          
+          {/* Problems Solved */}
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2.5 }}
+          >
+            <p className="text-xl text-blue-400 font-semibold">
+              🎯 <span className="text-white">1500+</span> Problems Solved
+            </p>
+          </motion.div>
         </motion.div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -148,18 +197,18 @@ const Hero = ({ heroRef }) => {
           transition={{ duration: 0.8, delay: 2 }}
           className="mb-8"
         >
-          <motion.a
-            href="/Cv_Aditya_Chaudhary_2025.pdf"
-            download
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            whileHover={{ 
-              scale: 1.05, 
-              y: -3,
-              boxShadow: "0 20px 40px rgba(147, 51, 234, 0.4)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
+                      <motion.a
+              href="/Cv_Aditya_Chaudhary_2025.pdf"
+              download
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-full text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+              whileHover={{ 
+                scale: 1.05, 
+                y: -3,
+                boxShadow: "0 20px 40px rgba(147, 51, 234, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
