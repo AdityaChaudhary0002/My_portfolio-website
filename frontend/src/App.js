@@ -1,5 +1,6 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { Stars } from '@react-three/drei';
 import { motion, useScroll, useTransform, useMotionValue, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import * as THREE from 'three';
