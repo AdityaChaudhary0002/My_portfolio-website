@@ -8,10 +8,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #0f172a;
-  color: #ffffff;
   overflow-x: hidden;
-  cursor: none;
 }
 
 /* Smooth scrolling */
@@ -234,12 +231,20 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(17, 24, 39, 0.8); /* bg-gray-900 with 80% opacity */
+  background-color: rgba(17, 24, 39, 0.25);
   transition: background-color 0.3s ease;
 }
 
 .project-card-container:hover::before {
-  background-color: rgba(17, 24, 39, 0.6); /* Less dark on hover */
+  background-color: rgba(17, 24, 39, 0.15);
+}
+
+.dark .project-card-container::before {
+  background-color: rgba(17, 24, 39, 0.8);
+}
+
+.dark .project-card-container:hover::before {
+  background-color: rgba(17, 24, 39, 0.6);
 }
 
 .project-card-container .project-card-content {
@@ -500,9 +505,9 @@ section {
   border-color: #10b981;
 }
 
-/* Show default cursor on interactive elements for accessibility */
+/* Ensure default cursor is visible everywhere */
 a, button, [role="button"], input, textarea, select {
-  cursor: none;
+  cursor: auto;
 }
 
 /* Custom cursor for different elements */
