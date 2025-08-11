@@ -10,7 +10,7 @@ const REPO_LINKS = {
 
 const Projects = ({ projectsRef }) => {
   return (
-    <section ref={projectsRef} className="min-h-screen flex items-center px-4 py-20">
+    <section id ="projects"className="min-h-screen flex items-center px-4 py-20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

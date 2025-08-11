@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 
 const Achievements = () => {
   return (
-    <section className="min-h-screen flex items-center px-4 py-20">
-      <div className="max-w-6xl mx-auto">
+<section id="achievements" className="min-h-screen flex items-center px-4 py-20">      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

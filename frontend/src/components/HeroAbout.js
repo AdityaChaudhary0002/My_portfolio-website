@@ -11,7 +11,7 @@ const HeroAbout = ({
   imgControls,
 }) => {
   return (
-    <section ref={frontRef} className="min-h-screen flex items-center px-4 py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950">
+    <section id="home" ref={frontRef} className="min-h-screen flex items-center px-4 py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center w-full">
         {/* Left column: Name, roles, quick info, resume & socials, plus a concise about */}
         <div className="flex flex-col gap-8">
@@ -50,99 +50,135 @@ const HeroAbout = ({
             </motion.p>
           </motion.div>
           
-          {/* Quick info chips */}
-          <div className="flex flex-wrap gap-3">
-            <motion.div
-              className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 backdrop-blur-md px-5 py-2.5 rounded-full border border-blue-200 dark:border-blue-700/50 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
-              whileHover={{ y: -3, scale: 1.05 }}
-            >
-              {/* Glassmorphic overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="text-gray-800 dark:text-white flex items-center gap-2 text-sm md:text-base relative z-10">
-                <svg className="w-4 h-4 md:w-5 md:h-5 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                Bangalore, Karnataka
-              </span>
-            </motion.div>
-            <motion.div
-              className="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 backdrop-blur-md px-5 py-2.5 rounded-full border border-purple-200 dark:border-purple-700/50 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
-              whileHover={{ y: -3, scale: 1.05 }}
-            >
-              {/* Glassmorphic overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="text-gray-800 dark:text-white flex items-center gap-2 text-sm md:text-base relative z-10">
-                <svg className="w-4 h-4 md:w-5 md:h-5 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 3L2 9l10 6 10-6-10-6zm0 13c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z"/>
-                </svg>
-                B.Tech CSE
-              </span>
-            </motion.div>
-            <motion.div
-              className="bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-800/30 backdrop-blur-md px-5 py-2.5 rounded-full border border-cyan-200 dark:border-cyan-700/50 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
-              whileHover={{ y: -3, scale: 1.05 }}
-            >
-              {/* Glassmorphic overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="text-gray-800 dark:text-white flex items-center gap-2 text-sm md:text-base relative z-10">
-                <svg className="w-4 h-4 md:w-5 md:h-5 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
-                </svg>
-                Open to Work
-              </span>
-            </motion.div>
-          </div>
-          
-          {/* Resume & Socials */}
-          <div className="flex flex-wrap items-center gap-4">
-            <motion.a
-              href="/Cv_Aditya_Chaudhary__2025.pdf"
-              download
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900/30 dark:to-purple-800/30 backdrop-blur-md px-6 py-3 rounded-full text-gray-900 dark:text-white font-medium border border-purple-300 dark:border-purple-700/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-              whileHover={{ y: -3, scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              {/* Glassmorphic overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <svg className="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span className="relative z-10">Download Resume</span>
-            </motion.a>
-            <div className="flex items-center gap-3">
-              <motion.a
-                href="mailto:aditya0002adi@gmail.com"
-                className="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 backdrop-blur-md px-5 py-2.5 rounded-full text-gray-900 dark:text-white border border-blue-300 dark:border-blue-700/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                whileHover={{ y: -3, scale: 1.05 }}
-              >
-                {/* Glassmorphic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10">Contact</span>
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/in/adityachaudhary0/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 backdrop-blur-md px-5 py-2.5 rounded-full text-gray-900 dark:text-white border border-blue-300 dark:border-blue-700/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                whileHover={{ y: -3, scale: 1.05 }}
-              >
-                {/* Glassmorphic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10">LinkedIn</span>
-              </motion.a>
-              <motion.a
-                href="https://github.com/AdityaChaudhary0002"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800/30 dark:to-gray-700/30 backdrop-blur-md px-5 py-2.5 rounded-full text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                whileHover={{ y: -3, scale: 1.05 }}
-              >
-                {/* Glassmorphic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-400/20 to-gray-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10">GitHub</span>
-              </motion.a>
-            </div>
-          </div>
+{/* Quick info chips */}
+<div className="flex flex-wrap gap-3">
+  <motion.div
+    className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 backdrop-blur-md px-5 py-2.5 rounded-full border border-blue-200 dark:border-blue-700/50 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+    whileHover={{ y: -3, scale: 1.05 }}
+  >
+    {/* Glassmorphic overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <span className="text-gray-800 dark:text-white flex items-center gap-2 text-sm md:text-base relative z-10">
+      <svg className="w-4 h-4 md:w-5 md:h-5 text-blue-600 dark:text-blue-400" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      Bangalore, Karnataka
+    </span>
+  </motion.div>
+  <motion.div
+    className="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 backdrop-blur-md px-5 py-2.5 rounded-full border border-purple-200 dark:border-purple-700/50 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+    whileHover={{ y: -3, scale: 1.05 }}
+  >
+    {/* Glassmorphic overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-purple-400/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <span className="text-gray-800 dark:text-white flex items-center gap-2 text-sm md:text-base relative z-10">
+      <svg className="w-4 h-4 md:w-5 md:h-5 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 3L2 9l10 6 10-6-10-6zm0 13c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z"/>
+      </svg>
+      B.Tech CSE
+    </span>
+  </motion.div>
+  <motion.div
+    className="bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-800/30 backdrop-blur-md px-5 py-2.5 rounded-full border border-cyan-200 dark:border-cyan-700/50 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+    whileHover={{ y: -3, scale: 1.05 }}
+  >
+    {/* Glassmorphic overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <span className="text-gray-800 dark:text-white flex items-center gap-2 text-sm md:text-base relative z-10">
+      <svg className="w-4 h-4 md:w-5 md:h-5 text-cyan-600 dark:text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+      </svg>
+      Open to Work
+    </span>
+  </motion.div>
+</div>
+
+{/* Resume & Socials - Centered Download Button */}
+<div className="flex flex-col items-center gap-6">
+  <motion.a
+    href="/Cv_Aditya_Chaudhary_2025.pdf"
+    download
+    className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+    whileHover={{ 
+      y: -5, 
+      scale: 1.05,
+      boxShadow: "0 20px 40px rgba(147, 51, 234, 0.4)"
+    }}
+    whileTap={{ scale: 0.95 }}
+  >
+    {/* Animated gradient background */}
+    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    
+    {/* Animated shine effect */}
+    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+    
+    <svg className="w-6 h-6 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+    <span className="relative z-10">Download Resume</span>
+  </motion.a>
+  
+  <div className="flex items-center gap-3">
+    {/* Contact with icon */}
+    <motion.a
+      href="mailto:aditya0002adi@gmail.com"
+      className="flex items-center gap-2 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 backdrop-blur-md px-5 py-2.5 rounded-full text-gray-900 dark:text-white border border-blue-300 dark:border-blue-700/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+      whileHover={{ y: -3, scale: 1.05 }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <svg
+        className="w-5 h-5 relative z-10"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M4 4h16v16H4V4zm8 8L4 6v12h16V6l-8 6z" />
+      </svg>
+      <span className="relative z-10">Contact</span>
+    </motion.a>
+    
+    {/* LinkedIn with icon */}
+    <motion.a
+      href="https://www.linkedin.com/in/adityachaudhary0/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 backdrop-blur-md px-5 py-2.5 rounded-full text-gray-900 dark:text-white border border-blue-300 dark:border-blue-700/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+      whileHover={{ y: -3, scale: 1.05 }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <svg
+        className="w-5 h-5 relative z-10"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v15H0V8zm7.5 0h4.8v2h.1c.7-1.3 2.4-2.6 5-2.6 5.3 0 6.3 3.5 6.3 8V23h-5v-7.3c0-1.8-.03-4.2-2.6-4.2-2.6 0-3 2-3 4.1V23h-5V8z" />
+      </svg>
+      <span className="relative z-10">LinkedIn</span>
+    </motion.a>
+    
+    {/* GitHub with icon */}
+    <motion.a
+      href="https://github.com/AdityaChaudhary0002"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800/30 dark:to-gray-700/30 backdrop-blur-md px-5 py-2.5 rounded-full text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700/50 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+      whileHover={{ y: -3, scale: 1.05 }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-400/20 to-gray-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <svg
+        className="w-5 h-5 relative z-10"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M12 0C5.37 0 0 5.4 0 12.07c0 5.33 3.44 9.85 8.2 11.45.6.11.82-.27.82-.6v-2.17c-3.34.73-4.04-1.65-4.04-1.65-.55-1.42-1.34-1.8-1.34-1.8-1.09-.76.08-.74.08-.74 1.2.09 1.84 1.26 1.84 1.26 1.07 1.85 2.8 1.31 3.48 1 .11-.79.42-1.31.76-1.61-2.67-.31-5.47-1.36-5.47-6.05 0-1.34.47-2.43 1.24-3.28-.13-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.26a11.3 11.3 0 016 0c2.29-1.59 3.3-1.26 3.3-1.26.66 1.69.25 2.94.12 3.25.77.85 1.24 1.94 1.24 3.28 0 4.7-2.81 5.74-5.49 6.04.43.37.81 1.1.81 2.22v3.29c0 .33.22.72.82.6A12.07 12.07 0 0024 12.07C24 5.4 18.63 0 12 0z"
+        />
+      </svg>
+      <span className="relative z-10">GitHub</span>
+    </motion.a>
+  </div>
+</div>
           
           {/* About */}
           <div className="space-y-6 mt-4">

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Skills = ({ skillsRef }) => {
   return (
-    <section ref={skillsRef} className="min-h-screen flex items-center px-4 py-20">
+    <section id = "skills"  className="min-h-screen flex items-center px-4 py-20">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

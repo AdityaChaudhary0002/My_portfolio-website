@@ -17,6 +17,7 @@ import Contact from './components/Contact';
 import Certifications from './components/Certifications';
 import Quote from './components/Quote';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 
 // 3D Scene Component
 const Scene3D = ({ section }) => {
@@ -45,7 +46,7 @@ function useParallaxTilt(shadowColor = 'rgba(96,165,250,0.18)') {
   return { tilt, handleMouseMove, handleMouseLeave };
 }
 
-const App = () => {
+function App() {
   const [currentSection, setCurrentSection] = useState('hero');
   const [theme, setTheme] = useState(() => {
     if (typeof window === 'undefined') return 'dark';
@@ -126,8 +127,26 @@ const App = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Smooth scroll effect added here
+  useEffect(() => {
+    const handleSmoothScroll = (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (anchor) {
+        const id = anchor.getAttribute('href').slice(1);
+        const section = document.getElementById(id);
+        if (section) {
+          e.preventDefault();
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+    document.addEventListener('click', handleSmoothScroll);
+    return () => document.removeEventListener('click', handleSmoothScroll);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-white overflow-x-hidden cursor-default">
+      <Navbar currentSection={currentSection} />
       {/* Scroll Progress Bar */}
       <motion.div
         className="scroll-progress"
@@ -144,44 +163,24 @@ const App = () => {
       </div>
 
       {/* Theme Toggle */}
-      <div className="fixed top-4 right-4 z-20">
+      <div className="fixed top-4 right-4 z-60">
         <button
-          onClick={() => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))}
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-black/40 backdrop-blur-md shadow-sm hover:shadow transition text-sm select-none"
           aria-label="Toggle theme"
           aria-pressed={theme === 'dark'}
         >
-          <AnimatePresence mode="wait" initial={false}>
-            {theme === 'dark' ? (
-              <motion.span
-                key="moon"
-                className="inline-flex items-center gap-2"
-                initial={{ opacity: 0, y: -6, rotate: -90 }}
-                animate={{ opacity: 1, y: 0, rotate: 0 }}
-                exit={{ opacity: 0, y: 6, rotate: 90 }}
-                transition={{ duration: 0.18 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                  <path d="M21.75 15.5a9.75 9.75 0 01-12.5-12.5 9.75 9.75 0 1012.5 12.5z" />
-                </svg>
-                <span className="hidden sm:inline">Dark</span>
-              </motion.span>
-            ) : (
-              <motion.span
-                key="sun"
-                className="inline-flex items-center gap-2"
-                initial={{ opacity: 0, y: -6, rotate: -90 }}
-                animate={{ opacity: 1, y: 0, rotate: 0 }}
-                exit={{ opacity: 0, y: 6, rotate: 90 }}
-                transition={{ duration: 0.18 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                  <path d="M12 3.75a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V4.5A.75.75 0 0112 3.75zm0 12a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5zM5.47 5.47a.75.75 0 011.06 0l1.06 1.06a.75.75 0 11-1.06 1.06L5.47 6.53a.75.75 0 010-1.06zM3.75 12a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5H4.5A.75.75 0 013.75 12zm12 7.5a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5H16.5a.75.75 0 01-.75-.75zm1.22-13.97a.75.75 0 011.06 1.06l-1.06 1.06a.75.75 0 11-1.06-1.06l1.06-1.06zM12 18.75a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V19.5a.75.75 0 01.75-.75zM5.47 17.47a.75.75 0 011.06 0l1.06-1.06a.75.75 0 11-1.06-1.06L5.47 16.41a.75.75 0 010 1.06z" />
-                </svg>
-                <span className="hidden sm:inline">Light</span>
-              </motion.span>
-            )}
-          </AnimatePresence>
+          {theme === 'dark' ? (
+            <span className="inline-flex items-center gap-2">
+              {/* moon icon */}
+              <span className="hidden sm:inline">Dark</span>
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-2">
+              {/* sun icon */}
+              <span className="hidden sm:inline">Light</span>
+            </span>
+          )}
         </button>
       </div>
 
