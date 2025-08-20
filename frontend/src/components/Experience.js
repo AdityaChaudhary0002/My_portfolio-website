@@ -21,7 +21,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id = "experience"  className="min-h-screen flex items-center px-4 py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950">
+    <section id="experience" className="min-h-screen flex items-center px-4 py-20">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
