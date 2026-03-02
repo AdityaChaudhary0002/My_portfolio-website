@@ -1,243 +1,257 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import StaticStars from "./StaticStars";
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 
-const HeroAbout = ({
-  frontRef,
-  orbitX,
-  orbitY,
-  imgTilt,
-  handleImgMouseMove,
-  handleImgMouseLeave,
-  imgControls,
-}) => {
+const MagneticButton = ({ children, className, href, download, target, rel }) => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouse = (e) => {
+    const { clientX, clientY } = e;
+    const { height, width, left, top } = e.currentTarget.getBoundingClientRect();
+    const middleX = clientX - (left + width / 2);
+    const middleY = clientY - (top + height / 2);
+    setPosition({ x: middleX * 0.3, y: middleY * 0.3 });
+  };
+
+  const reset = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const attr = href ? { href, download, target, rel } : {};
+  const Tag = href ? motion.a : motion.button;
+
   return (
-    <section id="home" ref={frontRef} className="min-h-screen flex items-center px-6 py-24 relative overflow-hidden">
-      {/* content starts */}
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-        {/* Left column: Name, roles, quick info, resume & socials, about */}
-        <div className="flex flex-col gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="text-left"
-          >
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 relative leading-tight"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
-                ADITYA CHAUDHARY
-              </span>
-              <motion.div
-                className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
-                animate={{ width: '60%' }}
-                transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
-              />
-            </motion.h1>
-            <motion.p
-              className="text-base md:text-lg text-gray-200 flex flex-wrap items-center gap-3 mt-4 font-medium"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
-            >
-              <span className="text-blue-400">Full Stack Developer</span>
-              <span className="text-gray-400">|</span>
-              <span className="text-blue-400">Problem Solver</span>
-              <span className="text-gray-400">|</span>
-              <span className="text-cyan-400">Tech Enthusiast</span>
-            </motion.p>
+    <Tag
+      {...attr}
+      className={className}
+      onMouseMove={handleMouse}
+      onMouseLeave={reset}
+      animate={{ x: position.x, y: position.y }}
+      transition={{ type: "spring", stiffness: 350, damping: 15, mass: 0.5 }}
+    >
+      {children}
+    </Tag>
+  );
+};
+
+const CodeTerminal = () => {
+  const [step, setStep] = useState(0);
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => setStep(1), 1000); // 1s
+    const timer2 = setTimeout(() => setStep(2), 2500); // 2.5s
+    const timer3 = setTimeout(() => setStep(3), 4000); // 4s
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, []);
+
+  return (
+    <div className="w-full text-left font-mono text-xs md:text-sm">
+      <div className="flex items-center gap-2 mb-4 border-b border-gray-200 dark:border-white/10 pb-3">
+        <div className="flex gap-1.5">
+          <div className="w-3 h-3 rounded-full bg-red-400"></div>
+          <div className="w-3 h-3 rounded-full bg-amber-400"></div>
+          <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
+        </div>
+        <span className="text-gray-400 dark:text-gray-500 text-xs font-semibold ml-2">aditya@mbp:~</span>
+      </div>
+
+      <div className="space-y-2 text-gray-700 dark:text-gray-300">
+        <div className="flex">
+          <span className="text-emerald-500 mr-2">➜</span>
+          <span className="text-cyan-500 mr-2">~</span>
+          <span>whoami</span>
+        </div>
+
+        {step >= 1 && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-500 pl-4">
+            Aditya Chaudhary - AI Full Stack Engineer
           </motion.div>
-          
-          {/* Quick info chips */}
-          <div className="flex flex-wrap gap-4">
-            {[
-              { icon: <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>, text: 'Bangalore, Karnataka', color: 'blue-500' },
-              { icon: <path d="M12 3L2 9l10 6 10-6-10-6zm0 13c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z"/>, text: 'B.Tech CSE', color: 'purple-500' },
-              { icon: <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>, text: 'Open to Work', color: 'cyan-500' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className={`bg-gray-900/50 backdrop-blur-sm px-5 py-2.5 rounded-full border border-gray-700/30 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group`}
-                whileHover={{ y: -2, scale: 1.03 }}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-r from-${item.color}/10 to-${item.color}/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                <span className="text-gray-100 flex items-center gap-2 text-sm md:text-base relative z-10">
-                  <svg className={`w-4 h-4 md:w-5 md:h-5 text-${item.color}`} viewBox="0 0 24 24" fill="currentColor">
-                    {item.icon}
-                  </svg>
-                  {item.text}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-          
-          {/* Resume & Socials */}
-          <div className="flex flex-col items-center gap-5">
-            <motion.a
-              href="/Cv_Aditya_Chaudhary_2025.pdf"
-              download
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3.5 rounded-full font-semibold text-base shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
-              whileHover={{ y: -4, scale: 1.04, boxShadow: '0 10px 20px rgba(59, 130, 246, 0.3)' }}
-              whileTap={{ scale: 0.98 }}
+        )}
+
+        {step >= 1 && (
+          <div className="flex mt-2 items-center">
+            <span className="text-emerald-500 mr-2">➜</span>
+            <span className="text-cyan-500 mr-2">~</span>
+            <motion.span
+              initial={{ width: 0 }} animate={{ width: "auto" }}
+              transition={{ duration: 1, ease: "linear" }}
+              className="overflow-hidden whitespace-nowrap inline-block"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
-              <svg className="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span className="relative z-10">Download Resume</span>
-            </motion.a>
-            
-            <div className="flex items-center gap-4">
-              {[
-                { href: 'mailto:aditya0002adi@gmail.com', icon: <path d="M4 4h16v16H4V4zm8 8L4 6v12h16V6l-8 6z" />, text: 'Contact', color: 'blue-500' },
-                { href: 'https://www.linkedin.com/in/adityachaudhary0/', icon: <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v15H0V8zm7.5 0h4.8v2h.1c.7-1.3 2.4-2.6 5-2.6 5.3 0 6.3 3.5 6.3 8V23h-5v-7.3c0-1.8-.03-4.2-2.6-4.2-2.6 0-3 2-3 4.1V23h-5V8z" />, text: 'LinkedIn', color: 'blue-500' },
-                { href: 'https://github.com/AdityaChaudhary0002', icon: <path fillRule="evenodd" clipRule="evenodd" d="M12 0C5.37 0 0 5.4 0 12.07c0 5.33 3.44 9.85 8.2 11.45.6.11.82-.27.82-.6v-2.17c-3.34.73-4.04-1.65-4.04-1.65-.55-1.42-1.34-1.8-1.34-1.8-1.09-.76.08-.74.08-.74 1.2.09 1.84 1.26 1.84 1.26 1.07 1.85 2.8 1.31 3.48 1 .11-.79.42-1.31.76-1.61-2.67-.31-5.47-1.36-5.47-6.05 0-1.34.47-2.43 1.24-3.28-.13-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.26a11.3 11.3 0 016 0c2.29-1.59 3.3-1.26 3.3-1.26.66 1.69.25 2.94.12 3.25.77.85 1.24 1.94 1.24 3.28 0 4.7-2.81 5.74-5.49 6.04.43.37.81 1.1.81 2.22v3.29c0 .33.22.72.82.6A12.07 12.07 0 0024 12.07C24 5.4 18.63 0 12 0z" />, text: 'GitHub', color: 'gray-500' },
-              ].map((item, index) => (
-                <motion.a
-                  key={index}
-                  href={item.href}
-                  target={item.text !== 'Contact' ? '_blank' : undefined}
-                  rel={item.text !== 'Contact' ? 'noopener noreferrer' : undefined}
-                  className={`flex items-center gap-2 bg-gray-900/50 backdrop-blur-sm px-5 py-2.5 rounded-full text-gray-100 border border-gray-700/30 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group`}
-                  whileHover={{ y: -2, scale: 1.03 }}
+              npm run stats
+            </motion.span>
+          </div>
+        )}
+
+        {step >= 2 && (
+          <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="pl-4 pt-2 space-y-1">
+            <div className="flex items-center gap-2"><span className="text-gray-400">Projects:</span><span className="text-blue-500 font-semibold">15+ Shipments</span></div>
+            <div className="flex items-center gap-2"><span className="text-gray-400">LeetCode:</span><span className="text-yellow-500 font-semibold">1805 Rating</span></div>
+            <div className="flex items-center gap-2"><span className="text-gray-400">Problems:</span><span className="text-rose-500 font-bold truncate">1500+ Solved</span></div>
+          </motion.div>
+        )}
+
+        {step >= 3 && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex mt-2 items-center">
+            <span className="text-emerald-500 mr-2">➜</span>
+            <span className="text-cyan-500 mr-2">~</span>
+            <span className="w-2 h-4 bg-gray-400 animate-pulse inline-block"></span>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const HeroAbout = ({ frontRef }) => {
+  return (
+    <section id="home" ref={frontRef} className="min-h-screen flex items-center px-4 md:px-8 py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full relative z-10 space-y-6">
+
+        {/* Top Split: Name/Roles & Profile */}
+        <div className="grid lg:grid-cols-3 gap-6">
+
+          {/* Main Hero Card (2 cols) */}
+          <div className="lg:col-span-2 bg-white/70 dark:bg-black/40 backdrop-blur-xl rounded-3xl p-6 md:p-12 border border-gray-200/50 dark:border-white/10 shadow-lg dark:shadow-2xl transition-all duration-300 hover:border-gray-300/50 dark:hover:border-white/20 group relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="relative z-10"
+            >
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tighter leading-[0.9]">
+                <span className="text-gray-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-gray-100 dark:via-gray-300 dark:to-gray-500">
+                  ADITYA<br />CHAUDHARY.
+                </span>
+              </h1>
+
+              <p className="text-lg md:text-xl flex flex-wrap items-center gap-3 font-medium tracking-tight">
+                <span className="text-black dark:text-white">AI Full Stack Engineer</span>
+                <span className="text-gray-300 dark:text-gray-700">•</span>
+                <span className="text-gray-600 dark:text-gray-400">Problem Solver</span>
+                <span className="text-gray-300 dark:text-gray-700">•</span>
+                <span className="text-gray-600 dark:text-gray-400">UI/UX Enthusiast</span>
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-4 items-center">
+                <MagneticButton
+                  href="/CV_Aditya_Chaudhary_2026_.pdf"
+                  download
+                  className="inline-flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black px-8 py-4 rounded-full font-semibold text-sm shadow-xl hover:shadow-2xl transition-shadow relative z-10"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-r from-${item.color}/10 to-${item.color}/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                  <svg className={`w-5 h-5 text-${item.color} relative z-10`} fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  <span>Download CV</span>
+                </MagneticButton>
+
+                <MagneticButton
+                  href="mailto:aditya0002adi@gmail.com"
+                  className="inline-flex items-center gap-2 bg-gray-100 dark:bg-white/5 text-gray-900 dark:text-white px-8 py-4 rounded-full font-semibold text-sm border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors relative z-10"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>Contact Me</span>
+                </MagneticButton>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Profile Card (1 col) */}
+          <div className="bg-white/70 dark:bg-black/40 backdrop-blur-xl rounded-3xl p-6 flex flex-col items-center justify-center border border-gray-200/50 dark:border-white/10 shadow-lg dark:shadow-2xl group hover:border-gray-300/50 dark:hover:border-white/20 transition-colors relative overflow-hidden">
+
+            <motion.div
+              className="relative w-48 h-48 md:w-56 md:h-56 rounded-full border border-gray-200 dark:border-white/10 p-1 bg-gray-50 dark:bg-transparent shadow-sm flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+            >
+              <img
+                src="/profile.jpg"
+                alt="Aditya Chaudhary"
+                className="w-full h-full rounded-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+              />
+              {/* Active Status Green Dot */}
+              <div className="absolute bottom-4 right-4 flex h-6 w-6">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-6 w-6 bg-green-500 border-[3px] border-white dark:border-[#111111]"></span>
+              </div>
+            </motion.div>
+
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              {[
+                { icon: <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />, color: 'text-red-500' },
+                { icon: <path d="M12 3L2 9l10 6 10-6-10-6zm0 13c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z" />, color: 'text-blue-500' },
+                { icon: <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />, color: 'text-emerald-500' },
+              ].map((item, index) => (
+                <div key={index} className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center border border-gray-200 dark:border-white/5">
+                  <svg className={`w-5 h-5 ${item.color}`} viewBox="0 0 24 24" fill="currentColor">
                     {item.icon}
                   </svg>
-                  <span className="relative z-10">{item.text}</span>
-                </motion.a>
+                </div>
               ))}
             </div>
+            <p className="text-xs text-gray-500 mt-4 text-center font-medium">Bengaluru • B.Tech CSE • Open to Work</p>
           </div>
-          
-          {/* About */}
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 shadow-md border border-gray-700/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative z-10">
-              <h2 className="text-2xl font-semibold mb-4 text-blue-400">About Me</h2>
-              <p className="text-gray-200 leading-relaxed text-base">
-                I'm a dedicated Full Stack Developer with a strong foundation in computer science and a passion for building scalable, high-performance web applications. With a competitive programming background, I thrive on solving complex problems and creating elegant, user-focused solutions.
-              </p>
+
+        </div>
+
+        {/* Bottom Split: About / IDE / Socials */}
+        <div className="grid lg:grid-cols-4 gap-6">
+
+          {/* About Card */}
+          <div className="lg:col-span-2 bg-white/70 dark:bg-black/40 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-gray-200/50 dark:border-white/10 flex flex-col justify-center shadow-lg dark:shadow-2xl hover:border-gray-300/50 dark:hover:border-white/20 transition-colors">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center gap-2">
+              <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              About Context
+            </h2>
+            <p className="text-gray-700 dark:text-gray-400 leading-relaxed text-base font-medium">
+              I'm a dedicated AI Full Stack Engineer with a strong foundation in computer science and a severe passion for building scalable, high-performance product applications. With a massive competitive programming background, I thrive on solving complex architectural problems and crafting elegant, user-focused visual solutions.
+            </p>
+          </div>
+
+          {/* IDE Terminal Card */}
+          <div className="bg-gray-50 dark:bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-gray-200/80 dark:border-white/10 shadow-lg dark:shadow-2xl hover:border-gray-300/50 dark:hover:border-white/20 transition-colors overflow-hidden flex flex-col justify-center">
+            <CodeTerminal />
+          </div>
+
+          {/* Connect / Socials Card */}
+          <div className="bg-white/70 dark:bg-black/40 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-gray-200/50 dark:border-white/10 flex flex-col justify-between shadow-lg dark:shadow-2xl hover:border-gray-300/50 dark:hover:border-white/20 transition-colors">
+            <h3 className="text-sm uppercase tracking-wider font-bold text-gray-500 dark:text-gray-400 mb-6">Network</h3>
+
+            <div className="space-y-3">
+              {[
+                { href: 'https://www.linkedin.com/in/adityachaudhary0/', label: 'LinkedIn', icon: <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v15H0V8zm7.5 0h4.8v2h.1c.7-1.3 2.4-2.6 5-2.6 5.3 0 6.3 3.5 6.3 8V23h-5v-7.3c0-1.8-.03-4.2-2.6-4.2-2.6 0-3 2-3 4.1V23h-5V8z" />, color: 'text-[#0077b5]' },
+                { href: 'https://github.com/AdityaChaudhary0002', label: 'GitHub', icon: <path fillRule="evenodd" clipRule="evenodd" d="M12 0C5.37 0 0 5.4 0 12.07c0 5.33 3.44 9.85 8.2 11.45.6.11.82-.27.82-.6v-2.17c-3.34.73-4.04-1.65-4.04-1.65-.55-1.42-1.34-1.8-1.34-1.8-1.09-.76.08-.74.08-.74 1.2.09 1.84 1.26 1.84 1.26 1.07 1.85 2.8 1.31 3.48 1 .11-.79.42-1.31.76-1.61-2.67-.31-5.47-1.36-5.47-6.05 0-1.34.47-2.43 1.24-3.28-.13-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.26a11.3 11.3 0 016 0c2.29-1.59 3.3-1.26 3.3-1.26.66 1.69.25 2.94.12 3.25.77.85 1.24 1.94 1.24 3.28 0 4.7-2.81 5.74-5.49 6.04.43.37.81 1.1.81 2.22v3.29c0 .33.22.72.82.6A12.07 12.07 0 0024 12.07C24 5.4 18.63 0 12 0z" />, color: 'text-gray-900 dark:text-white' },
+                { href: 'https://x.com/aditya0002ad', label: 'X', icon: <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />, color: 'text-gray-900 dark:text-white' },
+              ].map((social, i) => (
+                <MagneticButton
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-between p-4 rounded-2xl bg-gray-50 dark:bg-[#1a1a1c] border border-gray-200 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10 transition-colors group"
+                >
+                  <span className="font-semibold text-gray-700 dark:text-gray-300 text-sm">{social.label}</span>
+                  <svg className={`w-5 h-5 ${social.color} transition-transform group-hover:scale-110`} fill="currentColor" viewBox="0 0 24 24">
+                    {social.icon}
+                  </svg>
+                </MagneticButton>
+              ))}
+            </div>
+
+            <div className="mt-4 pt-4 border-t border-gray-200 dark:border-white/5">
+              <p className="text-xs text-center text-gray-500 font-medium hidden md:block">Press <kbd className="font-mono bg-gray-200 dark:bg-white/10 px-1.5 py-0.5 rounded text-gray-700 dark:text-gray-300 shadow-sm border border-gray-300 dark:border-white/20">⌘K</kbd> to explore</p>
             </div>
           </div>
+
         </div>
-        
-        {/* Right column: Profile image with subtle orbit/tilt + quick stats */}
-        <div className="flex flex-col items-center gap-8">
-          <motion.div
-            className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-1.5 shadow-lg flex items-center justify-center"
-            style={{
-              perspective: '1000px',
-              transform: `translateX(${orbitX}px) translateY(${orbitY}px) rotateY(${imgTilt.x}deg) rotateX(${imgTilt.y}deg)`,
-            }}
-            onMouseMove={handleImgMouseMove}
-            onMouseLeave={handleImgMouseLeave}
-            whileHover={{ scale: 1.05 }}
-            animate={imgControls}
-          >
-            <img
-              src="/profile.jpg"
-              alt="Aditya Chaudhary"
-              className="w-full h-full rounded-full object-cover"
-              style={{ transform: 'translateZ(30px) scale(0.95)', transformStyle: 'preserve-3d' }}
-            />
-          </motion.div>
-          
-          {/* Quick Stats Card */}
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 w-full max-w-md shadow-md border border-gray-700/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative z-10">
-              <div className="flex items-center mb-5">
-                <svg className="w-7 h-7 mr-2 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7-4h4v18h-4V3z" />
-                </svg>
-                <h3 className="text-xl font-semibold text-purple-400">Quick Stats</h3>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  {
-                    icon: (
-                      <svg className="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M4 4h16v2H4zM4 11h16v2H4zM4 18h16v2H4z"/>
-                      </svg>
-                    ),
-                    text: 'Projects',
-                    value: '15+',
-                    color: 'blue-400'
-                  },
-                  {
-                    icon: (
-                      <svg className="w-4 h-4 text-green-400" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                      </svg>
-                    ),
-                    text: 'Problems',
-                    value: '1500+',
-                    color: 'green-400'
-                  },
-                  {
-                    icon: (
-                      <svg className="w-4 h-4 text-purple-400" viewBox="0 0 32 32" fill="none">
-                        <path d="M25.5 16.1c0-2.2-1.1-4.2-2.9-5.4l-6.2-4.2c-1.1-.7-2.5-.7-3.6 0l-6.2 4.2C7.6 11.9 6.5 13.9 6.5 16.1v7.8c0 1.2.7 2.3 1.8 2.9l6.2 4.2c1.1.7 2.5.7 3.6 0l6.2-4.2c1.1-.7 1.8-1.8 1.8-2.9v-7.8z" fill="#FFA116"/>
-                        <path d="M16 2.5c-1.1 0-2 .9-2 2v7.2c0 1.1.9 2 2 2s2-.9 2-2V4.5c0-1.1-.9-2-2-2z" fill="#292D3E"/>
-                      </svg>
-                    ),
-                    text: 'LeetCode',
-                    value: '1805',
-                    color: 'purple-400'
-                  },
-                  {
-                    icon: (
-                      <svg className="w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M5 3h3v18H5zM10.5 7h3v14h-3zM16 11h3v10h-3z" />
-                      </svg>
-                    ),
-                    text: 'Codeforces',
-                    value: 'Pupil',
-                    color: 'blue-400'
-                  },
-                  {
-                    icon: (
-                      <svg className="w-4 h-4 text-green-400" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.486 2 2 6.477 2 12s4.486 10 10 10 10-4.477 10-10S17.514 2 12 2zm-4 8h2a2 2 0 110 4H8v-4zm6 0h2v4h-2a2 2 0 110-4z" />
-                      </svg>
-                    ),
-                    text: 'GfG',
-                    value: 'Active',
-                    color: 'green-400'
-                  },
-                  {
-                    icon: (
-                      <svg className="w-4 h-4 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M5 4h14v2H5zm2 4h10v12l-5-2-5 2V8z"/>
-                      </svg>
-                    ),
-                    text: 'Certificates',
-                    value: '5+',
-                    color: 'yellow-400'
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 bg-gray-800/40 rounded-lg hover:bg-gray-800/60 transition-colors duration-200">
-                    <div className="flex items-center gap-2">
-                      <div className={`w-7 h-7 rounded-full bg-${item.color}/10 flex items-center justify-center`}>
-                        {item.icon}
-                      </div>
-                      <span className="font-medium text-gray-200 text-sm">{item.text}</span>
-                    </div>
-                    <span className={`font-semibold text-${item.color} text-sm`}>{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

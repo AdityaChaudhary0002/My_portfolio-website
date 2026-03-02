@@ -26,12 +26,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4f46e5;
+  background: #333333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6366f1;
+  background: #555555;
 }
 
 /* 3D Scene Container */
@@ -60,15 +60,20 @@ html {
 }
 
 @keyframes gradient-x {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   25% {
     background-position: 100% 50%;
   }
+
   50% {
     background-position: 100% 100%;
   }
+
   75% {
     background-position: 0% 100%;
   }
@@ -76,15 +81,20 @@ html {
 
 /* Floating animation with more variation */
 @keyframes float-enhanced {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   25% {
     transform: translateY(-15px) rotate(1deg);
   }
+
   50% {
     transform: translateY(-25px) rotate(0deg);
   }
+
   75% {
     transform: translateY(-15px) rotate(-1deg);
   }
@@ -96,9 +106,12 @@ html {
 
 /* Pulse animation */
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
@@ -120,7 +133,7 @@ html {
 
 /* Enhanced glow effects */
 .glow-text {
-  text-shadow: 
+  text-shadow:
     0 0 5px currentColor,
     0 0 10px currentColor,
     0 0 15px currentColor,
@@ -137,11 +150,11 @@ section {
   section {
     padding: 60px 0;
   }
-  
+
   .text-6xl {
     font-size: 3rem;
   }
-  
+
   .text-8xl {
     font-size: 4rem;
   }
@@ -159,7 +172,9 @@ section {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Card hover effects */
@@ -364,13 +379,25 @@ section {
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: #4f46e5; }
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #4f46e5;
+  }
 }
 
 /* Parallax effect */
@@ -399,6 +426,7 @@ section {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -429,11 +457,11 @@ section {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .project-card {
     padding: 1.5rem;
   }
-  
+
   .nav-dots {
     display: none;
   }
@@ -441,10 +469,13 @@ section {
 
 /* Particle animation */
 @keyframes particle-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px) scale(1);
     opacity: 0.2;
   }
+
   50% {
     transform: translateY(-20px) translateX(10px) scale(1.2);
     opacity: 0.8;
@@ -460,6 +491,7 @@ section {
   0% {
     clip-path: inset(0 100% 0 0);
   }
+
   100% {
     clip-path: inset(0 0% 0 0);
   }
@@ -506,7 +538,12 @@ section {
 }
 
 /* Ensure default cursor is visible everywhere */
-a, button, [role="button"], input, textarea, select {
+a,
+button,
+[role="button"],
+input,
+textarea,
+select {
   cursor: auto;
 }
 
@@ -519,16 +556,9 @@ a, button, [role="button"], input, textarea, select {
   background: rgba(96, 165, 250, 0.2);
 }
 
-/* Scroll progress indicator */
+/* Scroll progress indicator (Disabled for clean UI) */
 .scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, #60a5fa, #a855f7, #10b981);
-  z-index: 10000;
-  transition: width 0.1s ease;
+  display: none;
 }
 
 /* Magnetic hover effect */
@@ -548,7 +578,7 @@ a, button, [role="button"], input, textarea, select {
 
 /* Interactive background pattern */
 .interactive-bg {
-  background-image: 
+  background-image:
     radial-gradient(circle at 20% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
@@ -622,9 +652,12 @@ a, button, [role="button"], input, textarea, select {
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -638,6 +671,7 @@ a, button, [role="button"], input, textarea, select {
   opacity: 0.7;
   z-index: 1;
 }
+
 .animate-gradient-border-green {
   background: linear-gradient(270deg, #34d399, #60a5fa, #a78bfa, #fbbf24, #34d399);
   background-size: 400% 400%;
@@ -645,8 +679,17 @@ a, button, [role="button"], input, textarea, select {
   opacity: 0.7;
   z-index: 1;
 }
+
 @keyframes gradientBorder {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }

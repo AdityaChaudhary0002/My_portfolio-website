@@ -3,34 +3,34 @@ import { motion } from 'framer-motion';
 
 const Skills = ({ skillsRef }) => {
   return (
-    <section id = "skills"  className="min-h-screen flex items-center px-4 py-20">
+    <section id="skills" className="min-h-screen flex items-center px-4 py-20">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-blue-700 dark:text-blue-400">Technical Skills</h2>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter text-gray-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-gray-100 dark:via-gray-300 dark:to-gray-500">Technical Skills</h2>
           <p className="text-lg text-gray-700 dark:text-gray-300">A look at the technologies I work with.</p>
         </motion.div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Programming */}
-          <motion.div 
-            className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center relative overflow-hidden group shadow-md border border-gray-200 dark:border-transparent"
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            whileHover={{ y: -15, scale: 1.05, rotateY: 5, boxShadow: '0px 20px 40px rgba(96, 165, 250, 0.4)' }}
-            transition={{ duration: 0.6, delay: 0.1, type: 'spring', stiffness: 300 }}
+          <motion.div
+            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4 }}
           >
-            <motion.div className="flex justify-center items-center mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-              <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+            <div className="flex justify-center items-center mb-6">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-white/5 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10">
+                <svg className="w-6 h-6 text-gray-900 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
                 </svg>
               </div>
-            </motion.div>
-            <h3 className="text-2xl font-bold mb-4 text-blue-700 dark:text-blue-400">Programming</h3>
+            </div>
+            <h3 className="text-lg font-semibold mb-5 text-gray-900 dark:text-gray-100">Programming</h3>
             <div className="space-y-3 pl-4">
               <div className="flex items-start justify-start gap-3">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-6 h-6 flex-shrink-0" />
@@ -46,24 +46,24 @@ const Skills = ({ skillsRef }) => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Web Development */}
-          <motion.div 
-            className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center relative overflow-hidden group shadow-md border border-gray-200 dark:border-transparent"
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            whileHover={{ y: -15, scale: 1.05, rotateY: 5, boxShadow: '0px 20px 40px rgba(52, 211, 153, 0.4)' }}
-            transition={{ duration: 0.6, delay: 0.2, type: 'spring', stiffness: 300 }}
+          <motion.div
+            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <motion.div className="flex justify-center items-center mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-              <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  <path d="M12 15l-2.5-1.5L8 12l1.5-2.5L12 8l2.5 1.5L16 12l-1.5 2.5L12 15z"/>
+            <div className="flex justify-center items-center mb-6">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-white/5 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10">
+                <svg className="w-6 h-6 text-gray-900 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  <path d="M12 15l-2.5-1.5L8 12l1.5-2.5L12 8l2.5 1.5L16 12l-1.5 2.5L12 15z" />
                 </svg>
               </div>
-            </motion.div>
-            <h3 className="text-2xl font-bold mb-4 text-green-700 dark:text-green-400">Web Development</h3>
+            </div>
+            <h3 className="text-lg font-semibold mb-5 text-gray-900 dark:text-gray-100">Web Development</h3>
             <div className="space-y-3 pl-4">
               <div className="flex items-start justify-start gap-3">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" className="w-6 h-6 flex-shrink-0" />
@@ -79,7 +79,7 @@ const Skills = ({ skillsRef }) => {
               </div>
               <div className="flex items-start justify-start gap-3">
                 <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+                  <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
                 </svg>
                 <span className="text-gray-800 dark:text-gray-300">Tailwind CSS</span>
               </div>
@@ -89,24 +89,24 @@ const Skills = ({ skillsRef }) => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Database */}
-          <motion.div 
-            className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center relative overflow-hidden group shadow-md border border-gray-200 dark:border-transparent"
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            whileHover={{ y: -15, scale: 1.05, rotateY: 5, boxShadow: '0px 20px 40px rgba(168, 85, 247, 0.4)' }}
-            transition={{ duration: 0.6, delay: 0.3, type: 'spring', stiffness: 300 }}
+          <motion.div
+            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <motion.div className="flex justify-center items-center mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-              <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4v10c0 2.21-3.582 4-8 4s-8-1.79-8-4V7zm8-2c-3.314 0-6 1.343-6 3v10c0 1.657 2.686 3 6 3s6-1.343 6-3V8c0-1.657-2.686-3-6-3z"/>
-                  <path d="M12 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+            <div className="flex justify-center items-center mb-6">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-white/5 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10">
+                <svg className="w-6 h-6 text-gray-900 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4v10c0 2.21-3.582 4-8 4s-8-1.79-8-4V7zm8-2c-3.314 0-6 1.343-6 3v10c0 1.657 2.686 3 6 3s6-1.343 6-3V8c0-1.657-2.686-3-6-3z" />
+                  <path d="M12 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                 </svg>
               </div>
-            </motion.div>
-            <h3 className="text-2xl font-bold mb-4 text-purple-700 dark:text-purple-400">Database</h3>
+            </div>
+            <h3 className="text-lg font-semibold mb-5 text-gray-900 dark:text-gray-100">Database</h3>
             <div className="space-y-3 pl-4">
               <div className="flex items-start justify-start gap-3">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-6 h-6 flex-shrink-0" />
@@ -122,23 +122,23 @@ const Skills = ({ skillsRef }) => {
               </div>
             </div>
           </motion.div>
-          
+
           {/* Tools & Tech */}
-          <motion.div 
-            className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center relative overflow-hidden group shadow-md border border-gray-200 dark:border-transparent"
-            initial={{ opacity: 0, y: 50, scale: 0.8 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            whileHover={{ y: -15, scale: 1.05, rotateY: 5, boxShadow: '0px 20px 40px rgba(251, 191, 36, 0.4)' }}
-            transition={{ duration: 0.6, delay: 0.4, type: 'spring', stiffness: 300 }}
+          <motion.div
+            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
           >
-            <motion.div className="flex justify-center items-center mb-4" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
-              <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-gray-900 dark:text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            <div className="flex justify-center items-center mb-6">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-white/5 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10">
+                <svg className="w-6 h-6 text-gray-900 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                 </svg>
               </div>
-            </motion.div>
-            <h3 className="text-2xl font-bold mb-4 text-yellow-700 dark:text-yellow-400">Tools & Tech</h3>
+            </div>
+            <h3 className="text-lg font-semibold mb-5 text-gray-900 dark:text-gray-100">Tools & Tech</h3>
             <div className="space-y-3 pl-4">
               <div className="flex items-start justify-start gap-3">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-6 h-6 flex-shrink-0" />
