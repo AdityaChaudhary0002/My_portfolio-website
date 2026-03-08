@@ -39,10 +39,10 @@ const Education = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mb-10 text-center"
+          className="mb-10 md:text-left text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-2 tracking-tighter text-gray-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-gray-100 dark:via-gray-300 dark:to-gray-500">Education</h2>
-          <p className="text-gray-600 dark:text-gray-400">Academic milestones and performance</p>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 dark:from-gray-100 dark:via-gray-400 dark:to-gray-100 animate-text-shimmer uppercase leading-[0.9]">ACADEMIC<br />BACKGROUND</h2>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">Academic milestones and performance</p>
         </motion.div>
         <div className="grid md:grid-cols-2 gap-6">
           {education.map((ed, i) => (

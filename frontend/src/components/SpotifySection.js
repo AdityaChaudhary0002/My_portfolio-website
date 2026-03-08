@@ -6,11 +6,11 @@ const SpotifySection = () => {
         <section id="spotify" className="px-4 py-20 bg-gray-50 dark:bg-transparent border-t border-gray-200 dark:border-white/5">
             <div className="max-w-4xl mx-auto w-full">
                 {/* Title */}
-                <div className="mb-12 text-center relative z-20">
-                    <h2 className="text-3xl md:text-5xl font-black tracking-tighter bg-gradient-to-r from-gray-900 to-gray-500 dark:from-white dark:to-gray-400 text-transparent bg-clip-text">
-                        My Featured Playlist
+                <div className="mb-12 md:text-left text-center relative z-20">
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 dark:from-gray-100 dark:via-gray-400 dark:to-gray-100 animate-text-shimmer uppercase leading-[0.9]">
+                        VIBE<br />CHECK
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 mt-3 font-medium">Music that fuels my coding sessions.</p>
+                    <p className="text-gray-500 dark:text-gray-400 mt-4 font-medium">Music that fuels my coding sessions.</p>
                 </div>
 
                 <motion.div
@@ -24,10 +24,9 @@ const SpotifySection = () => {
 
                     {/* Official Spotify Embed */}
                     <iframe
-                        className="w-full relative z-20 rounded-2xl"
-                        title="Spotify Premium Embed"
-                        style={{ border: "none", minHeight: "352px" }}
-                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+                        data-testid="embed-iframe"
+                        style={{ borderRadius: "12px", border: "none" }}
+                        src="https://open.spotify.com/embed/playlist/14I8CUzbsC6ZiO7hV7ZOb6?utm_source=generator&theme=0"
                         width="100%"
                         height="352"
                         allowFullScreen=""

@@ -1,6 +1,7 @@
 import React, { Suspense, useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValue, useMotionTemplate, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { ReactLenis, useLenis } from 'lenis/react'
 import './App.css';
 
 // Import components
@@ -48,52 +49,57 @@ function App() {
   const spotlightStyleDark = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,0.06), transparent 80%)`;
 
   return (
-    <div
-      className="relative min-h-screen bg-[#fafafa] text-gray-900 dark:bg-[#000000] dark:text-white overflow-x-hidden cursor-pointer selection:bg-blue-500/30 dark:selection:bg-white/20"
-      onMouseMove={handleGlobalMouseMove}
-      onMouseLeave={handleGlobalMouseLeave}
-    >
-      {/* Global Command Palette */}
-      <CommandPalette theme={theme} setTheme={setTheme} />
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothTouch: true }}>
+      <div
+        className="relative min-h-screen bg-[#fafafa] text-gray-900 dark:bg-[#000000] dark:text-white overflow-x-hidden cursor-pointer selection:bg-blue-500/30 dark:selection:bg-white/20"
+        onMouseMove={handleGlobalMouseMove}
+        onMouseLeave={handleGlobalMouseLeave}
+      >
+        {/* Subtle premium noise texture for dark theme */}
+        {theme === 'dark' && <div className="noise-bg mix-blend-overlay opacity-20 hidden dark:block"></div>}
 
-      <Navbar currentSection={currentSection} />
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="scroll-progress"
-        style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
-      />
+        {/* Global Command Palette */}
+        <CommandPalette theme={theme} setTheme={setTheme} />
 
-      {/* Scrollable Content */}
-      <div className="relative z-10 bg-white/70 dark:bg-black/50">
-        {/* Combined Hero + About Section */}
-        <HeroAbout frontRef={frontRef} />
+        <Navbar currentSection={currentSection} />
+        {/* Scroll Progress Bar */}
+        <motion.div
+          className="scroll-progress"
+          style={{ scaleX: scrollYProgress, transformOrigin: "0%", position: 'fixed', top: 0, left: 0, right: 0, height: '3px', background: '#3b82f6', zIndex: 100 }}
+        />
 
-        {/* Experience Section */}
-        <Experience />
+        {/* Scrollable Content */}
+        <div className="relative z-10 bg-white/70 dark:bg-black/50">
+          {/* Combined Hero + About Section */}
+          <HeroAbout frontRef={frontRef} />
 
-        {/* Education Section */}
-        <Education />
+          {/* Experience Section */}
+          <Experience />
 
-        {/* Skills Section */}
-        <Skills skillsRef={skillsRef} />
+          {/* Education Section */}
+          <Education />
 
-        {/* Projects Section */}
-        <Projects projectsRef={projectsRef} />
+          {/* Skills Section */}
+          <Skills skillsRef={skillsRef} />
+
+          {/* Projects Section */}
+          <Projects projectsRef={projectsRef} />
 
 
-        {/* Achievements Section */}
-        <Achievements />
+          {/* Achievements Section */}
+          <Achievements />
 
-        {/* Spotify Section */}
-        <SpotifySection />
+          {/* Spotify Section */}
+          <SpotifySection />
 
-        {/* Contact Section */}
-        <Contact />
+          {/* Contact Section */}
+          <Contact />
 
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ReactLenis>
   );
 }
 

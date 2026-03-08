@@ -36,10 +36,11 @@ const Navbar = ({ currentSection }) => {
   };
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl bg-white/70 dark:bg-[#0B0B0D]/80 backdrop-blur-xl border border-gray-200/50 dark:border-white/10 rounded-full shadow-sm transition-all duration-300">
-      <div className="flex items-center justify-between px-4 py-2">
-        <span className="text-sm font-bold text-gray-900 dark:text-white tracking-widest uppercase ml-2 select-none">
-          Aditya.
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl bg-white/60 dark:bg-[#0B0B0D]/60 backdrop-blur-2xl border border-gray-200/50 dark:border-white/5 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_32px_rgba(255,255,255,0.02)] transition-all duration-300">
+      <div className="flex items-center justify-between px-3 py-1.5">
+        <span className="text-sm font-black text-gray-900 dark:text-white tracking-widest uppercase ml-3 select-none flex items-center gap-1.5 font-outfit">
+          <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2L2 9l10 6 10-6-10-6zm0 13c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4z" /></svg>
+          ADITYA.
         </span>
         <div className="hidden md:flex gap-1 items-center">
           {NAV_ITEMS.map((item) => (

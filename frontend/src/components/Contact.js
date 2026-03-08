@@ -9,10 +9,10 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="md:text-left text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter text-gray-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-gray-100 dark:via-gray-300 dark:to-gray-500">Get in Touch</h2>
-          <p className="text-gray-600 dark:text-gray-400">Let's work together on your next project</p>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 dark:from-gray-100 dark:via-gray-400 dark:to-gray-100 animate-text-shimmer uppercase leading-[0.9]">GET IN<br />TOUCH</h2>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">Let's work together on your next project</p>
         </motion.div>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
