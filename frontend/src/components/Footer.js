@@ -23,6 +23,14 @@ const Footer = () => {
           <p className="text-gray-400 dark:text-gray-500 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium">
             © 2026 Aditya Chaudhary. All rights reserved.
           </p>
+          <div className="mt-6 flex justify-center items-center">
+            <div className="block dark:hidden opacity-70 hover:opacity-100 transition-opacity grayscale-[50%]">
+               <img src="https://api.visitorbadge.io/api/visitors?path=adityachaudhary.portfolio.2026&label=PROFILE%20VIEWS&labelColor=%23f3f4f6&countColor=%231f2937&style=flat&labelStyle=upper" alt="Views" className="h-[22px] rounded"/>
+            </div>
+            <div className="hidden dark:block opacity-70 hover:opacity-100 transition-opacity grayscale-[50%]">
+               <img src="https://api.visitorbadge.io/api/visitors?path=adityachaudhary.portfolio.2026&label=PROFILE%20VIEWS&labelColor=%231f2937&countColor=%23f3f4f6&style=flat&labelStyle=upper" alt="Views" className="h-[22px] rounded"/>
+            </div>
+          </div>
         </motion.div>
       </div>
     </footer>

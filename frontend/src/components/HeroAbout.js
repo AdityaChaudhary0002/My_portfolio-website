@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
-const MagneticButton = ({ children, className, href, download, target, rel }) => {
+const MagneticButton = ({ children, className, href, download, target, rel, onClick }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouse = (e) => {
@@ -22,6 +22,7 @@ const MagneticButton = ({ children, className, href, download, target, rel }) =>
   return (
     <Tag
       {...attr}
+      onClick={onClick}
       className={className}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
@@ -141,13 +142,15 @@ const HeroAbout = ({ frontRef }) => {
               <div className="mt-10 flex flex-wrap gap-4 items-center">
                 <MagneticButton
                   href="/CV_Aditya_Chaudhary_2026_.pdf"
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black px-8 py-4 rounded-full font-semibold text-sm shadow-xl hover:shadow-2xl transition-shadow relative z-10"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
-                  <span>Download CV</span>
+                  <span>View CV</span>
                 </MagneticButton>
 
                 <MagneticButton
@@ -213,6 +216,14 @@ const HeroAbout = ({ frontRef }) => {
             <p className="text-gray-700 dark:text-gray-400 leading-relaxed text-base font-medium">
               I'm a dedicated AI Full Stack Engineer with a strong foundation in computer science and a severe passion for building scalable, high-performance product applications. With a massive competitive programming background, I thrive on solving complex architectural problems and crafting elegant, user-focused visual solutions.
             </p>
+            <div className="mt-6 flex justify-end">
+              <div 
+                className="text-5xl text-gray-800 dark:text-gray-200 opacity-90 pr-4" 
+                style={{ fontFamily: "'Great Vibes', cursive", transform: 'rotate(-5deg)' }}
+              >
+                Aditya Chaudhary
+              </div>
+            </div>
           </div>
 
           {/* IDE Terminal Card */}
