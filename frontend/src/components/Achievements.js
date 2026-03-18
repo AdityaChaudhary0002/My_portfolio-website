@@ -25,7 +25,7 @@ const Achievements = () => {
             key={achievement.platform}
             whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
-            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center cursor-pointer border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 group flex flex-col items-center justify-between h-full"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-6 text-center cursor-pointer group flex flex-col items-center justify-between h-full"
             onClick={() => window.open(achievement.url, '_blank')}
           >
             <div className="w-14 h-14 bg-gray-100 dark:bg-white/5 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -62,7 +62,7 @@ const Achievements = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-2xl mx-auto">
-          <div className="bg-gray-50 dark:bg-transparent rounded-xl p-8 border border-gray-200 dark:border-white/10">
+          <div className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-8">
             <div className="flex items-center justify-center gap-3 mb-2">
               <span className="text-3xl opacity-80">🎯</span>
               <h4 className="text-2xl font-semibold text-gray-900 dark:text-white tracking-tight">1500+ Problems Solved</h4>

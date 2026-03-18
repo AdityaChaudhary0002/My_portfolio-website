@@ -27,7 +27,7 @@ const projectsData = [
   {
     title: "HireMind AI",
     description: "An intelligent AI-powered interview platform featuring conversational memory, live voice interactions, and adaptive follow-up questions.",
-    image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2000&auto=format&fit=crop",
+    image: "/hiremind-bg.png",
     techs: ["React", "Node.js", "AI Engine", "WebRTC"],
     liveUrl: "https://hiremind-ai.vercel.app/",
     githubUrl: "https://github.com/AdityaChaudhary0002/Hiremind-Ai"
@@ -35,7 +35,7 @@ const projectsData = [
   {
     title: "Vibe",
     description: "A modern, AI-integrated social network and real-time chat platform leveraging powerful language models to enhance human connection intuitively.",
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=2064&auto=format&fit=crop",
+    image: "/vibe-bg.png",
     techs: ["React.js", "Tailwind", "Socket.io", "Framer Motion"],
     liveUrl: "https://vibe-frontend-ad.vercel.app/",
     githubUrl: "https://github.com/AdityaChaudhary0002/Vibe"
@@ -99,7 +99,7 @@ const Projects = ({ projectsRef }) => {
               {/* Image Container */}
               <div className="relative h-[220px] md:h-[240px] w-full overflow-hidden bg-gray-100 dark:bg-[#111]">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-105"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent dark:from-[#0a0a0a] dark:via-[#0a0a0a]/20 dark:to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-40" />

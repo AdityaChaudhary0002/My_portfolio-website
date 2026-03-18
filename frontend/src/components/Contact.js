@@ -20,7 +20,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="bg-gray-50 dark:bg-transparent p-8 md:p-10 rounded-xl h-full flex flex-col justify-between border border-gray-200 dark:border-white/10"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-8 md:p-10 h-full flex flex-col justify-between"
           >
             <div>
               <h3 className="text-xl font-semibold mb-8 text-gray-900 dark:text-white tracking-tight">Contact Information</h3>
@@ -108,7 +108,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="bg-gray-50 dark:bg-transparent p-8 md:p-10 rounded-xl h-full border border-gray-200 dark:border-white/10"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-8 md:p-10 h-full"
           >
             <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white tracking-tight">Send a Message</h3>
             <p className="text-gray-600 dark:text-gray-400 mb-8 text-sm">Tell me about your project, collaboration idea, or just drop a hello.</p>

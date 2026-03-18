@@ -51,7 +51,7 @@ const Education = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.05 }}
-              className="bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-white/10 rounded-xl p-8 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 hover:-translate-y-1 relative group"
+              className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-8 hover:-translate-y-1 relative group"
             >
               <div className="flex items-start gap-4 relative z-10">
                 <div className={`w-12 h-12 rounded-xl border flex items-center justify-center transition-all duration-300 shadow-sm

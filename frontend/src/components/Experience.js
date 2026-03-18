@@ -5,7 +5,7 @@ const experiences = [
   {
     role: 'MERN Stack Developer',
     company: 'MoneyNotSleep Media Pvt. Ltd.',
-    location: 'Jaipur, Rajasthan, India',
+    location: 'Remote',
     period: 'June 2024 – June 2025',
     type: 'Internship',
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Tailwind CSS', 'REST APIs'],
@@ -58,7 +58,7 @@ const Experience = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.05 }}
-              className="bg-gray-50 dark:bg-transparent border border-gray-200 dark:border-white/10 rounded-xl p-8 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 hover:-translate-y-1 relative group"
+              className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-8 hover:-translate-y-1 relative group"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 relative z-10">
                 <div className="flex-1">

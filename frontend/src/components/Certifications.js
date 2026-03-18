@@ -18,7 +18,7 @@ const Certifications = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* React.js Development */}
           <motion.div
-            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 flex flex-col items-center justify-between"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-6 text-center flex flex-col items-center justify-between"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4 }}
@@ -42,7 +42,7 @@ const Certifications = () => {
 
           {/* Node.js Backend Development */}
           <motion.div
-            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 flex flex-col items-center justify-between"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-6 text-center flex flex-col items-center justify-between"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4 }}
@@ -66,7 +66,7 @@ const Certifications = () => {
 
           {/* MongoDB Database Design */}
           <motion.div
-            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 flex flex-col items-center justify-between"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-6 text-center flex flex-col items-center justify-between"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4 }}
@@ -90,7 +90,7 @@ const Certifications = () => {
 
           {/* Python Programming */}
           <motion.div
-            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 flex flex-col items-center justify-between"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-6 text-center flex flex-col items-center justify-between"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4 }}
@@ -114,7 +114,7 @@ const Certifications = () => {
 
           {/* Git & GitHub */}
           <motion.div
-            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 flex flex-col items-center justify-between"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-6 text-center flex flex-col items-center justify-between"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4 }}
@@ -138,7 +138,7 @@ const Certifications = () => {
 
           {/* Web Development Fundamentals */}
           <motion.div
-            className="bg-gray-50 dark:bg-transparent rounded-xl p-6 text-center border border-gray-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors duration-300 flex flex-col items-center justify-between"
+            className="bg-white dark:bg-[#0a0a0a] rounded-3xl overflow-hidden border border-gray-200/60 dark:border-white/10 transition-all duration-500 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-2xl dark:hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.05)] p-6 text-center flex flex-col items-center justify-between"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4 }}
